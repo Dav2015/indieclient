@@ -16,6 +16,7 @@ $app->get('/test/near', function (Request $request, Response $response, array $a
 
     $point = $request->getParam("point");
 
+    //get json from the indiecamper API
     $nearPlace = json_decode(file_get_contents("https://indiecamper.azurewebsites.net/near?point=$point"));
 
     $latlong = explode(",", $point);
@@ -33,7 +34,7 @@ $app->get('/test/near', function (Request $request, Response $response, array $a
 $app->get('/test/route', function (Request $request, Response $response, array $args) {
 
     $points = $request->getParam("points");
-
+//get json from the indiecamper API
     $nearPlace = json_decode(file_get_contents("https://indiecamper.azurewebsites.net/route?points=$points"));
 
     return $this->renderer->render($response, 'route.phtml', ["places" => $nearPlace]);
