@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Simple Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+
+            function initMap() {
+                var center = {lat: 40.4381404, lng: -3.9590807};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 12,
+                    center: center
+                });
+
+
+<?php for ($i = 0; $i < count($places) - 1; ++$i): ?>
+
+
+                    var placePos = {lat: <?php echo $places[$i]->latitude ?>, lng: <?php echo $places[$i]->longitude ?>};
+
+                    var marker = new google.maps.Marker({
+                        position: placePos,
+                        map: map,
+                        title: "<?php echo $places[$i]->name ?>",
+                    }
+                    );
+
+                    var line = new google.maps.Polyline({
+                        path: [
+                            new google.maps.LatLng(<?php echo $places[$i]->latitude ?>,<?php echo $places[$i]->longitude ?>),
+                            new google.maps.LatLng(<?php echo $places[$i + 1]->latitude ?>,<?php echo $places[$i + 1]->longitude ?>)
+                        ],
+                        strokeColor: "#FF0000",
+                        strokeOpacity: 1.0,
+                        strokeWeight: 10,
+                        map: map
+                    });
+<?php endfor; ?>
+
+            }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBev6P8BEdL-i1NpJV5uHr9VTonYmbEfQE&callback=initMap"
+        async defer></script>
+    </body>
+</html>
