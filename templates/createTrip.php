@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col">
                     <div  style="margin-top: 1%" class="alert alert-info"  role="alert">
-                        Click in two or more times in the map to create a route. (only works in iberian peninsula)
+                        Click two or more times in the map to create a route. (only works in iberian peninsula)
                     </div>
                 </div>
             </div>
