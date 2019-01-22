@@ -8,7 +8,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     // Sample log message
     //$this->logger->info("Slim-Skeleton '/' route");
     // Render index view
-    return $this->renderer->render($response, 'doc.html');
+    return $this->renderer->render($response, 'index.html');
 });
 
 $app->get('/test/map', function (Request $request, Response $response, array $args) {
