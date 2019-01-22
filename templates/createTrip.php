@@ -41,6 +41,13 @@
                     </div>
                 </div>
             </div>
+			<div class="row">
+                <div class="col">
+                    <div  style="margin-top: 1%" class="alert alert-info"  role="alert">
+                        For example: Click in Lisbon and Porto or Lisbon and Sagres or Lisbon and Barcelona
+                    </div>
+                </div>
+            </div>
         </div>
         <div style="margin-top: 10px" id="map"></div>
 
