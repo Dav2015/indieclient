@@ -24,10 +24,10 @@
         <script>
 
             function initMap() {
-                var center = {lat: 40.4381404, lng: -3.9590807};
+                var center = {lat: 38.8049692, lng: -8.6436762};
 
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 12,
+                    zoom: 7,
                     center: center
                 });
 
@@ -55,6 +55,15 @@
                         map: map
                     });
 <?php endfor; ?>
+
+                var lastPos = {lat: <?php echo $places[count($places)-1]->latitude ?>, lng: <?php echo $places[count($places)-1]->longitude ?>};
+
+                var marker = new google.maps.Marker({
+                    position: lastPos,
+                    map: map,
+                    title: "<?php echo $places[count($places)-1]->name ?>"
+                }
+                );
 
             }
 
