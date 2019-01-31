@@ -24,6 +24,7 @@
         <script>
 
             function initMap() {
+                //center the map in lisbon
                 var center = {lat: 38.8049692, lng: -8.6436762};
 
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,9 +32,8 @@
                     center: center
                 });
 
-
+//put mars and lines
 <?php for ($i = 0; $i < count($places) - 1; ++$i): ?>
-
 
                     var placePos = {lat: <?php echo $places[$i]->latitude ?>, lng: <?php echo $places[$i]->longitude ?>};
 
@@ -55,13 +55,13 @@
                         map: map
                     });
 <?php endfor; ?>
-
-                var lastPos = {lat: <?php echo $places[count($places)-1]->latitude ?>, lng: <?php echo $places[count($places)-1]->longitude ?>};
+                //put the last mark
+                var lastPos = {lat: <?php echo $places[count($places) - 1]->latitude ?>, lng: <?php echo $places[count($places) - 1]->longitude ?>};
 
                 var marker = new google.maps.Marker({
                     position: lastPos,
                     map: map,
-                    title: "<?php echo $places[count($places)-1]->name ?>"
+                    title: "<?php echo $places[count($places) - 1]->name ?>"
                 }
                 );
 
