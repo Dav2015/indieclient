@@ -1,5 +1,7 @@
 # Guide through MinusTravel API
 
+This API, helps clients to create routes of interest for doing a car trip.
+
 # Used technologies
 * PHP
 * SLIM framework
