@@ -12,7 +12,7 @@ $app->get('/test/map', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'createTrip.php');
 });
 
-$app->get('/test/near', function (Request $request, Response $response, array $args) {
+$app->get('/test/n  ear', function (Request $request, Response $response, array $args) {
     $point = $request->getParam("point");
     //get json from the indiecamper API
     $nearPlace = json_decode(file_get_contents("https://indiecamper.azurewebsites.net/near?point=$point"));
